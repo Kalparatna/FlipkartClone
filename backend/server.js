@@ -11,14 +11,16 @@ import { dirname } from "path";
 const app = express(); 
 
 
+// Allow CORS for specific frontend domain
 app.use(
   cors({
-    origin: ['http://localhost:5173'], 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    credentials: true, 
-    allowedHeaders: ['Content-Type', 'Authorization'], 
+    origin: ['http://localhost:5173', '*'], // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Allow credentials (cookies or HTTP auth)
+    allowedHeaders: ['Content-Type', 'Authorization'], // Ensure proper headers
   })
 );
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

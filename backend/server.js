@@ -13,13 +13,14 @@ const app = express();
 
 // Allow CORS for specific frontend domain
 app.use(
-  cors({
-    origin: ['http://localhost:5173','https://flipkart-clone-wheat.vercel.app/', '*'], // Your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true, // Allow credentials (cookies or HTTP auth)
-    allowedHeaders: ['Content-Type', 'Authorization'], // Ensure proper headers
-  })
+    cors({
+        origin: ['https://flipkart-clone-wheat.vercel.app', '*'], // Add your frontend domain
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true,
+        allowedHeaders: ['Content-Type', 'Authorization'],
+    })
 );
+
 
 
 const __filename = fileURLToPath(import.meta.url);

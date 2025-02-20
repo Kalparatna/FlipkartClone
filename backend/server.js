@@ -14,12 +14,16 @@ const app = express();
 // Allow CORS for specific frontend domain
 app.use(
     cors({
-        origin: ['https://flipkart-clone-wheat.vercel.app', '*'], // Add your frontend domain
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        origin: "https://flipkart-clone-wheat.vercel.app", // Only allow your frontend
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Include OPTIONS
         credentials: true,
-        allowedHeaders: ['Content-Type', 'Authorization'],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
+
+// Explicitly handle OPTIONS requests for preflight
+app.options("*", cors());
+
 
 
 
